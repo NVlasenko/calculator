@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "start": "parcel --open",
+    "build": "parcel build --public-url=/dist",
+    "deploy": "git push origin main:gh-pages"
+  },
+  "devDependencies": {
+    "@mate-academy/eslint-config": "^0.0.25",
+    "@parcel/transformer-sass": "^2.9.3",
+    "eslint": "^8.45.0",
+    "eslint-config-rallycoding": "^3.2.0",
+    "eslint-plugin-react": "^7.32.2",
+    "parcel": "^2.9.3"
+  }
+}
