@@ -1,5 +1,5 @@
 const sum = document.querySelector('.sum');
-
+const title = document.getElementById('title');
 let sumValue = sum.textContent;
 const numbs = document.querySelectorAll('.box__num');
 const reset = document.getElementById('reset');
@@ -14,14 +14,12 @@ function speakText(text) {
 numbs.forEach(el => {
   el.addEventListener('click', () => {
     const textValue = el.textContent;
-    if (textValue === '-') {
-      speakText('minus');
-    }
+
     if (sum.textContent.length > 12) {
       sumValue = '0';
     }
     if (textValue === 'Del' && textValue.length >= 1) {
-      speakText('удалим как');
+      speakText(`удалим`);
       sumValue = sumValue.slice(0, -1);
     }
     if(textValue !== '=') {
@@ -35,7 +33,7 @@ numbs.forEach(el => {
       speakText('равно');
         sumValue = eval(sumValue);
       } 
-      speakText(textValue);
+     
     sum.textContent = sumValue;
     speakText(sum.textContent);
   });
@@ -90,3 +88,8 @@ function updateTime() {
 setInterval(updateTime, 1000);
 
 updateTime();
+
+
+title.addEventListener('click', () => {
+  speakText('Calcuuuullllllaaaalalalalalltortortor by Nadi 5000', 0.5);
+})
