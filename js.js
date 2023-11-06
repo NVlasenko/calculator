@@ -9,7 +9,7 @@ numbs.forEach(el => {
   el.addEventListener('click', () => {
     const textValue = el.textContent;
 
-    if (sum.textContent.length > 13) {
+    if (sum.textContent.length > 12) {
       sumValue = '0';
     }
     if (textValue === 'Del' && textValue.length >= 1) {
