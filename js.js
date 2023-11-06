@@ -9,6 +9,9 @@ numbs.forEach(el => {
   el.addEventListener('click', () => {
     const textValue = el.textContent;
 
+    if (sum.textContent.length > 13) {
+      sumValue = '0';
+    }
     if (textValue === 'Del' && textValue.length >= 1) {
       sumValue = sumValue.slice(0, -1);
     }
