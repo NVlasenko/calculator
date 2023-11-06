@@ -5,17 +5,25 @@ const numbs = document.querySelectorAll('.box__num');
 const reset = document.getElementById('reset');
 const del = document.getElementById('del');
 
+function speakText(text) {
+  const synth = window.speechSynthesis;
+  const utterance = new SpeechSynthesisUtterance(text);
+  synth.speak(utterance);
+}
+
 numbs.forEach(el => {
   el.addEventListener('click', () => {
     const textValue = el.textContent;
-
+    if (textValue === '-') {
+      speakText('minus');
+    }
     if (sum.textContent.length > 12) {
       sumValue = '0';
     }
     if (textValue === 'Del' && textValue.length >= 1) {
+      speakText('удалим как');
       sumValue = sumValue.slice(0, -1);
     }
-
     if(textValue !== '=') {
         if (sumValue === '0') {
         sumValue = textValue;
@@ -24,14 +32,17 @@ numbs.forEach(el => {
         }
 
     } else if (textValue === '=') {
+      speakText('равно');
         sumValue = eval(sumValue);
       } 
-
+      speakText(textValue);
     sum.textContent = sumValue;
+    speakText(sum.textContent);
   });
 });
 
 reset.addEventListener('click', () => {
+  speakText('сброс');
   sumValue = '0';
   sum.textContent = sumValue;
 })
